@@ -5,7 +5,8 @@ app.get('/hello', (req, res) => {
   res.sendFile('hello.html', { root: `${__dirname}/public/` });
 });
 
-app.get('/world', (req, res) => {
+app.get('/world', async (req, res) => {
+  await new Promise(resolve => setTimeout(() => resolve(), 3000));
   res.sendFile('world.html', { root: `${__dirname}/public/` });
 });
 
